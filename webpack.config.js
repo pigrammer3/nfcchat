@@ -26,7 +26,7 @@ export default {
           {
             loader: "css-loader",
             options: {
-              modules: true,
+              modules: false,
             },
           },
         ],

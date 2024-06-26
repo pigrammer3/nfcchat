@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./messages.module.css";
+import "./messages.css";
 
 export interface Message {
   content: string;
@@ -11,7 +11,7 @@ export default ({ messages }: { messages: Message[] }) => {
   return (
     <div>
       {messages.map((msg) => (
-        <p className={msg.isError ? styles.errorMessage : ""}>
+        <p className={msg.isError ? "errorMessage" : ""}>
           <strong>{msg.timestamp.toLocaleTimeString()}</strong>
           {msg.content}
         </p>
