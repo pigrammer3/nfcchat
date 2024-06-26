@@ -8,18 +8,16 @@ export default () => {
   const addError = (error: string) => {
     setContent((prev) => [
       ...prev,
-      { content: `Error: ${error}`, timestamp: new Date() },
+      { content: `Error: ${error}`, timestamp: new Date(), isError: true },
     ]);
-  
-  }
+  };
   useEffect(() => {
     const ndef = new NDEFReader();
     ndef
       .scan()
       .then(() => {
-        console.log("Scan started successfully.");
+        addError("Scan started.");
         ndef.onreadingerror = (event) => {
-          console.log("NFC read error", event);
           addError("NFC read error: " + event);
         };
         ndef.onreading = (event) => {
