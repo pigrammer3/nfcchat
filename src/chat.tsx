@@ -22,6 +22,7 @@ export default () => {
         };
         ndef.onreading = (event) => {
           const message = event.message;
+          addError(message.toString());
           const textDecoder = new TextDecoder();
           for (const record of message.records) {
             if (record.recordType === "text") {
