@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-interface Message {
-  content: string;
-  timestamp: Date;
-}
+import Messages, { Message } from "./messages";
 
 export default () => {
   const [content, setContent] = useState<Message[]>([]);
@@ -35,14 +32,7 @@ export default () => {
   return (
     <>
       <h1>Messages</h1>
-      <div>
-        {content.map((msg) => (
-          <p>
-            <strong>{msg.timestamp.toLocaleTimeString()}</strong>
-            {msg.content}
-          </p>
-        ))}
-      </div>
+      <Messages messages={content} />
     </>
   );
 };

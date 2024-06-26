@@ -1,13 +1,13 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 
-import Receiver from "./receiver";
+import Chat from "./chat";
 
 const App = () => {
   return (
     <>
       <div>NFC Chat</div>
-      <Receiver />
+      <Chat />
     </>
   );
 };
