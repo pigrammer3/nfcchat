@@ -26,15 +26,15 @@ importers:
       html-webpack-plugin:
         specifier: ^5.6.0
         version: 5.6.0(webpack@5.92.1(webpack-cli@5.1.4))
+      mini-css-extract-plugin:
+        specifier: ^2.9.0
+        version: 2.9.0(webpack@5.92.1(webpack-cli@5.1.4))
       react:
         specifier: ^18.3.1
         version: 18.3.1
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
-      style-loader:
-        specifier: ^4.0.0
-        version: 4.0.0(webpack@5.92.1(webpack-cli@5.1.4))
       ts-loader:
         specifier: ^9.5.1
         version: 9.5.1(typescript@5.5.2)(webpack@5.92.1(webpack-cli@5.1.4))
@@ -1099,6 +1099,12 @@ packages:
     resolution: {integrity: sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==}
     engines: {node: '>=6'}
 
+  mini-css-extract-plugin@2.9.0:
+    resolution: {integrity: sha512-Zs1YsZVfemekSZG+44vBsYTLQORkPMwnlv+aehcxK/NLKC+EGhDB39/YePYYqx/sTk6NnYpuqikhSn7+JIevTA==}
+    engines: {node: '>= 12.13.0'}
+    peerDependencies:
+      webpack: ^5.0.0
+
   minimalistic-assert@1.0.1:
     resolution: {integrity: sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==}
 
@@ -1571,12 +1577,6 @@ packages:
   strip-final-newline@2.0.0:
     resolution: {integrity: sha512-BrpvfNAE3dcvq7ll3xVumzjKjZQ5tI1sEUIKr3Uoks0XUl45St3FlatVqef9prk4jRDzhW6WZg+3bk93y6pLjA==}
     engines: {node: '>=6'}
-
-  style-loader@4.0.0:
-    resolution: {integrity: sha512-1V4WqhhZZgjVAVJyt7TdDPZoPBPNHbekX4fWnCJL1yQukhCeZhJySUL+gL9y6sNdN95uEOS83Y55SqHcP7MzLA==}
-    engines: {node: '>= 18.12.0'}
-    peerDependencies:
-      webpack: ^5.27.0
 
   stylus@0.62.0:
     resolution: {integrity: sha512-v3YCf31atbwJQIMtPNX8hcQ+okD4NQaTuKGUWfII8eaqn+3otrbttGL1zSMZAAtiPsBztQnujVBugg/cXFUpyg==}
@@ -2888,6 +2888,12 @@ snapshots:
 
   mimic-fn@2.1.0: {}
 
+  mini-css-extract-plugin@2.9.0(webpack@5.92.1(webpack-cli@5.1.4)):
+    dependencies:
+      schema-utils: 4.2.0
+      tapable: 2.2.1
+      webpack: 5.92.1(webpack-cli@5.1.4)
+
   minimalistic-assert@1.0.1: {}
 
   minimatch@3.1.2:
@@ -3374,10 +3380,6 @@ snapshots:
   strip-bom@3.0.0: {}
 
   strip-final-newline@2.0.0: {}
-
-  style-loader@4.0.0(webpack@5.92.1(webpack-cli@5.1.4)):
-    dependencies:
-      webpack: 5.92.1(webpack-cli@5.1.4)
 
   stylus@0.62.0:
     dependencies:
