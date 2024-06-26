@@ -5,6 +5,13 @@ import Messages, { Message } from "./messages";
 export default () => {
   const [content, setContent] = useState<Message[]>([]);
   const [message, setMessage] = useState("");
+  const addError = (error: string) => {
+    setContent((prev) => [
+      ...prev,
+      { content: `Error: ${error}`, timestamp: new Date() },
+    ]);
+  
+  }
   useEffect(() => {
     const ndef = new NDEFReader();
     ndef
@@ -12,7 +19,8 @@ export default () => {
       .then(() => {
         console.log("Scan started successfully.");
         ndef.onreadingerror = (event) => {
-          console.log("NFC read error:", event);
+          console.log("NFC read error", event);
+          addError("NFC read error: " + event);
         };
         ndef.onreading = (event) => {
           const message = event.message;
@@ -28,7 +36,7 @@ export default () => {
           }
         };
       })
-      .catch((error) => console.log("Scan failed to start:", error));
+      .catch((error) => addError("Scan failed: " + error));
   }, []);
   const sendMessage = () => {
     const ndef = new NDEFReader();
@@ -42,7 +50,7 @@ export default () => {
           { content: message, timestamp: new Date() },
         ]);
       })
-      .catch((error) => console.log("Write failed:", error));
+      .catch((error) => addError("Write failed: " + error));
   };
   return (
     <>
